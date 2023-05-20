@@ -127,11 +127,11 @@ const  eliminaContactoObjetoDireccion = (direccionBorrar) => {
 }
 
 // Uso mis funciones de eliminar por nombres, apellidos, telefono, ciudad y direccion
-console.log(eliminaContactoObjetoNombres("Jefferson Andrés"));
+/* console.log(eliminaContactoObjetoNombres("Jefferson Andrés"));
 console.log(eliminaContactoObjetoApellidos("Mejía"));
 console.log(eliminaContactoObjetoTelefono(3114339404));
 console.log(eliminaContactoObjetoCiudad("Riohacha"));
-console.log(eliminaContactoObjetoDireccion("Calle 5 # 1-23"));
+console.log(eliminaContactoObjetoDireccion("Calle 5 # 1-23")); */
 
 
 // Creo mi función para imprimir el array de objetos imprimeLista()
@@ -141,3 +141,22 @@ const imprimeLista = () => {
 
 // Finalmente pruebo mi función imprimeLista
 imprimeLista();
+
+// Creo función para editar un contacto através del key nombres, con los parámetros: edicionNombres (Nombres del contacto que se quiere editar), id (nuevo), nombres (nuevo), apellidos (nuevo), telefono (nuevo), fechaNacimiento (nuevo), ciudad (nuevo) y direccion (nuevo)
+const editarNombres =  (edicionNombres,id,nombres,apellidos, telefono, fechaNacimiento,ciudad, direccion) => {
+  let indiceEdicionNombres = miLista.findIndex(indiceEdicionNombres => indiceEdicionNombres.nombres==edicionNombres);
+  miLista[indiceEdicionNombres] = {
+    id: id,
+    nombres: nombres,
+    apellidos: apellidos,
+    telefono: telefono,
+    fechaNacimiento: new Date(fechaNacimiento),
+    ubicaciones: {ciudad:ciudad,direccion:direccion}
+  }
+  return miLista;
+}
+
+// Prueba cambiando el contacto nombres="Jefferson Andrés"
+console.log(editarNombres("Jefferson Andrés","001-1","Jefferson","Giraldo A",3113111111,"1988-04-22","Madrid","Avenida Moncloa 6"));
+// Prueba cambiando el contacto nombres="Victor Mauricio"
+console.log(editarNombres("Victor Mauricio","001-1","Jefferson","Giraldo A",3113111111,"1988-04-22","Madrid","Avenida Moncloa 6"));
